@@ -1,1 +1,1 @@
-web: gunicorn zaifworld.wsgi --log-file -
+web: gunicorn zaifworld.wsgi
