@@ -1,0 +1,176 @@
+{%extends 'base.html'%}
+{%block container%}
+
+            <div id="slider">
+                <div class="flexslider">
+                  <ul class="slides">
+
+                    {%for slide in slider%}
+                    <li>
+                        <div class="slider-caption">
+                            <!-- <h1>Zaif World Tiles</h1>
+                            <p style="font-weight:500;">ZAIF Associates started in the year 2010, as a manufacture and dealer of roof tiles & paver
+                            tiles.</p> -->
+
+                        </div>
+                      <img src="{{slide.image.url}}" alt="" />
+                    </li>
+                    {%endfor%}
+
+
+
+
+
+                  </ul>
+                </div>
+            </div>
+
+
+            <!-- <div id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Free Website Templates</h2>
+                                <img src="/static/images/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <i class="fa fa-pencil"></i>
+                                </div>
+                                <h4>Make an order</h4>
+                                <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu  sagittis vel diam in, malesuada malesuada risus. Aenean a sem leoneski.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <i class="fa fa-bullhorn"></i>
+                                </div>
+                                <h4>Promotions</h4>
+                                <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu  sagittis vel diam in, malesuada malesuada risus. Aenean a sem leoneski.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <i class="fa fa-bell"></i>
+                                </div>
+                                <h4>Ready to Serve</h4>
+                                <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu  sagittis vel diam in, malesuada malesuada risus. Aenean a sem leoneski.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <i class="fa fa-heart"></i>
+                                </div>
+                                <h4>Satisfaction</h4>
+                                <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu  sagittis vel diam in, malesuada malesuada risus. Aenean a sem leoneski.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+
+
+            <div id="latest-blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Feactured Products</h2>
+                                <img src="/static/images/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      {%for p in pic%}
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="{{p.image.url}}" alt="" style="height:270px;" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="{%url 'product_filter' p.category.slug %}">{{p.category}}</a></h4>
+
+                                    </div>
+                                    <div class="content-hide">
+                                        <!-- <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit. Sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {%endfor%}
+
+
+                    </div>
+                    <div class="space50"></div>
+                    <div class="row">
+                        <div class="col-md-6" align="center" >
+                          <a href="{%url 'about' %}#water" style="font-size:18px"><h3>Weather proof tiles</h3></a>
+
+
+                        <img src="/static/images/7b.jpg" height="120px" width="180px" />
+                        </div>
+                        <div class="col-md-6" align="center">
+                          <a href="{%url 'about' %}#weather"style="font-size:18px"><h3>Is Your House Leaking ?</h3></a>
+
+                         <img src="/static/images/9b.jpg"height="120px" width="180px" />
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div id="testimonails">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>What Customers Say</h2>
+                                <img src="/static/images/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="testimonails-slider">
+                              <ul class="slides">
+                                <li>
+                                    <div class="testimonails-content">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                        <h6>Jennifer - <a href="#">Chief Designer</a></h6>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="testimonails-content">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                        <h6>Laureen - <a href="#">Marketing Executive</a></h6>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="testimonails-content">
+                                        <p>Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit sed arcu odio, sagittis vel diam in, malesuada malesuada risus. Aenean a sem leo. Nam ultricies dolor et mi tempor, non pulvinar felis sollicitudin.</p>
+                                        <h6>Tanya - <a href="#">Creative Director</a></h6>
+                                    </div>
+                                </li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+		      {%endblock%}

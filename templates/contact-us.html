@@ -1,0 +1,185 @@
+{%extends 'base.html'%}
+{%block container%}
+
+
+            <div id="heading">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-content">
+                                <h2>Contact Us</h2>
+                                <span>Home / <a href="{% url 'contact' %}">Contac us</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="product-post">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Feel free to send a message</h2>
+                                <img src="/static/images/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div id="contact-us">
+                        <div class="container">
+                            <div class="row">
+                                <div class="product-item col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="message-form">
+                                                <form id="contact-form" method="post" class="send-message">
+                                                  {%csrf_token%}
+                                                  <div id="success" style="display:none">
+                                                  Mail send successfully !!...
+                                                   </div>
+                                                   <div id="loading" style="display:none">
+                                                    loading !!...
+                                                     </div>
+                                                  <div id="fail" style="display:none">
+                                                   Ooopz Error found!!...
+                                                    </div>
+                                                    <div id="nullval" style="display:none; color:red;">
+                                                    *required field.
+                                                    </div>
+
+                                                    <div class="row">
+                                                    <div class="name col-md-4">
+                                                        <input type="text" name="name" id="name" placeholder="*Name" />
+                                                    </div>
+                                                    <div class="email col-md-4">
+                                                        <input type="text" name="email" id="email" placeholder="*Email" />
+                                                    </div>
+                                                    <div class="subject col-md-4">
+                                                        <input type="text" name="phone" id="phone" placeholder="*Phone Number" />
+                                                    </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="text col-md-12">
+                                                            <textarea name="message" placeholder="Message" id="*message"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="send">
+
+                                                        <button><a href="javascript:;" name="submit" onclick="Submit()" style="color:white;">Submit</a>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="info">
+
+                                              <b>Zaif Associates</b><br />
+                                              <!-- Manufacture & Dealer<br />
+                                              Roof tiles & Paver tiles<br />
+                                              'Zaifi' Ettumana P.O.,Karuvannur<br />
+                                              Thrissur, Kerala-680711<br />
+                                              Phone : 0487 2342435<br/>
+                                              Mobile :+91 9895293000<br/>
+                                              Mobile :+91 9539923818<br />
+
+                                              Email : ferosh68@gmail.com<br/> -->
+                                                <p>Manufacture & Dealer<br />
+                                                Roof tiles & Paver tiles<br />
+                                                <ul>
+
+
+                                                  <li><i class="fa fa-globe"></i>XII/517, Chazoor complex <br />Opp Karuvannus Juma Masjid, <br />Karuvannur P.O,
+                                                  Thrissur, Kerala-680711</li>
+                                                    <li><i class="fa fa-phone"></i>+91 9895293000</li>
+                                                    <li><i class="fa fa-phone"></i>+91 9349090099</li>
+
+                                                    <li><i class="fa fa-envelope"></i><a href="#">info@zaifworld.com</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Find Us On Map</h2>
+                                <img src="/static/images/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="googleMap" style="height:420px;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d346.8538107709381!2d76.2155831564158!3d10.405453150633193!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1452592939867" height="420px" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                    <script type="text/javascript">
+
+                    function Submit() {
+
+                     $('#loading').css('display','block');
+
+
+                           var formData = new FormData($('#contact-form')[0]);
+
+
+
+                           $.ajax({
+                                   url: "{% url 'contact' %}",
+                                   type: 'POST',
+                                   data: formData,
+                                   async: true,
+                                   cache: false,
+                                   contentType: false,
+                                   processData: false,
+
+                                   success: function(response_data) {
+
+                                   if(response_data.status=='success')
+                                   {
+
+
+                                        $('#name').val('');
+                                        $('#email').val('');
+                                        $('#phone').val('');
+                                        $('#message').val('');
+
+                                        $('#success').css('display','block');
+                                       $('#fail').css('display','none');
+            													 $('#nullval').css('display','none');
+                                       $('#loading').css('display','none');
+
+                                   }else {
+
+                                     $('#success').css('display','none');
+                                       $('#fail').css('display','block');
+            													 $('#nullval').css('display','none');
+                                       $('#loading').css('display','none');
+                                   }
+            											 if(response_data.status=='nullval')
+             											{
+             												$('#tsuccess').css('display','none');
+             													$('#tfail').css('display','none');
+
+             													$('#tloading').css('display','none');
+             													$('#nullval').css('display','block');
+             												}
+                               } // end of success
+
+                           }); // end of $.ajax
+                   }
+
+                   </script>
+    {%endblock%}
